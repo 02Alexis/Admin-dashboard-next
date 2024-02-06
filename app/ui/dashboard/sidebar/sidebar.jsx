@@ -83,7 +83,7 @@ const Sidebar = () => {
       <div className={styles.user}>
         <Image
           className={styles.userImage}
-          src="/noavatar.png"
+          src="/kirito.jpg"
           alt=""
           width="50"
           height="50"
