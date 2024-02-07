@@ -6,6 +6,7 @@ import bcrypt from "bcrypt";
 import { connectToDB } from "./utils";
 import { Product, User } from "./models";
 
+// Users creating
 export const addUser = async (formData) => {
   const { username, email, password, phone, address, isAdmin, isActive } =
     Object.fromEntries(formData);
@@ -36,8 +37,22 @@ export const addUser = async (formData) => {
   redirect("/dashboard/users");
 };
 
-// Products
+// Users delete
+export const deleteUser = async (formData) => {
+  const { id } = Object.fromEntries(formData);
 
+  try {
+    connectToDB();
+    await User.findByIdAndDelete(id);
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to delete user!");
+  }
+
+  revalidatePath("/dashboard/products");
+};
+
+// Products creating
 export const addProduct = async (formData) => {
   const { title, desc, price, stock, color, size } =
     Object.fromEntries(formData);
@@ -62,4 +77,19 @@ export const addProduct = async (formData) => {
 
   revalidatePath("/dashboard/products");
   redirect("/dashboard/products");
+};
+
+// Products delete
+export const deleteProduct = async (formData) => {
+  const { id } = Object.fromEntries(formData);
+
+  try {
+    connectToDB();
+    await Product.findByIdAndDelete(id);
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to delete product!");
+  }
+
+  revalidatePath("/dashboard/products");
 };
