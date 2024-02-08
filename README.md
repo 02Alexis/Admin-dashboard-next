@@ -1,3 +1,5 @@
+Next.js 14 Admin Dashboard, Creación de usuarios y productos, e inicio de sesión. Este proyecto proporciona un dashboard administrativo potente construido con Next.js 14. La aplicación es fullstack, con acciones del servidor para garantizar un rendimiento eficiente. Permite la creación y gestión de usuarios y productos, así como la autenticación segura con un sólido sistema de inicio de sesión. Utiliza MongoDB como base de datos para un almacenamiento de datos flexible y escalable. Proyecto escalable y fácil de usar
+
 ## Instalación
 
 1. **Clona el repositorio:**
